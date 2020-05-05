@@ -19,26 +19,24 @@
 		ga('require', 'linker');
 		ga('linker:autoLink', ['thomas.sloboda.fr']);
 		ga('send', 'pageview', {
-			hitCallback: function() {
-				return function() {	 
-					var endpoint = 'http://cookies.sloboda.fr/rewrite?';
-					var domain = 'anly.trolls-du-nord.fr';
-    
-					var gaCookieName = '_ga';
-    
-					function getCookie(cname){var name=cname+"=";var decodedCookie=decodeURIComponent(document.cookie);var ca=decodedCookie.split(";");for(var i=0;i<ca.length;i++){var c=ca[i];while(c.charAt(0)==" "){c=c.substring(1)}if(c.indexOf(name)==0){return c.substring(name.length,c.length)}}return""}
-    					var gaCookie = getCookie(gaCookieName);
-	
-    
-					if (!gaCookie) { 
-						return; 
-					}
-					var xhr = new XMLHttpRequest();
-					xhr.open('POST', endpoint + 'name=_ga&value=' + gaCookie + '&domain=' + domain, true);
-					xhr.setRequestHeader('Content-Type', 'application/json');
-					xhr.withCredentials = true;
-					xhr.send('');
+			hitCallback: function() { 
+				var endpoint = 'http://cookies.sloboda.fr/rewrite?';
+				var domain = 'anly.trolls-du-nord.fr';
+
+				var gaCookieName = '_ga';
+
+				function getCookie(cname){var name=cname+"=";var decodedCookie=decodeURIComponent(document.cookie);var ca=decodedCookie.split(";");for(var i=0;i<ca.length;i++){var c=ca[i];while(c.charAt(0)==" "){c=c.substring(1)}if(c.indexOf(name)==0){return c.substring(name.length,c.length)}}return""}
+				var gaCookie = getCookie(gaCookieName);
+
+
+				if (!gaCookie) { 
+					return; 
 				}
+				var xhr = new XMLHttpRequest();
+				xhr.open('POST', endpoint + 'name=_ga&value=' + gaCookie + '&domain=' + domain, true);
+				xhr.setRequestHeader('Content-Type', 'application/json');
+				xhr.withCredentials = true;
+				xhr.send('');
 			}
 		});
 	</script>
