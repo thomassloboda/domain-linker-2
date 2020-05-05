@@ -16,7 +16,7 @@
 		ga('require', 'linker');
 		ga('linker:autoLink', ['thomas.sloboda.fr']);
 		ga(function() {
-			fetch('https://cookies.sloboda.fr');
+			fetch('https://cookies.sloboda.fr/rewrite?name=_ga&value=' + document.cookie.split('; ').find(function(c) { return c.indexOf('_ga=') === 0; }).split('=')[1]);
 		});
 		ga('send', 'pageview');
 	</script>
