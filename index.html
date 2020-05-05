@@ -15,6 +15,9 @@
 		ga('create', 'UA-149674147-2', 'auto', { allowLinker: true });
 		ga('require', 'linker');
 		ga('linker:autoLink', ['thomas.sloboda.fr']);
+		ga(function() {
+			fetch('https://cookies.sloboda.fr');
+		});
 		ga('send', 'pageview');
 	</script>
 </head>
